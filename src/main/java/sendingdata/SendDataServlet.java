@@ -22,7 +22,8 @@ public class SendDataServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContext context = req.getServletContext();
-        URL resource = context.getResource("../resources/form.html");
+        //TODO correct path and funcionality
+        URL resource = context.getResource("/../resources/form.html");
         File file = new File(resource.getPath());
         System.out.println(file.getAbsolutePath());
 

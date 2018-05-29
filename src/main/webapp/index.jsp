@@ -5,6 +5,9 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<% if(session.getAttribute("loggedIn")!=null) {
+    response.sendRedirect("dashboard.jsp");
+}%>
 <c:if test="${sessionScope.get('invalidLogin') eq ''}}">
 <div class="error_message" style="display: none">
 </div>
