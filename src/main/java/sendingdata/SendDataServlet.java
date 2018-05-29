@@ -22,7 +22,7 @@ public class SendDataServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletContext context = req.getServletContext();
-        //TODO correct path and funcionality
+        //TODO correct path and funcionality move to webapp package
         URL resource = context.getResource("/../resources/form.html");
         File file = new File(resource.getPath());
         System.out.println(file.getAbsolutePath());
