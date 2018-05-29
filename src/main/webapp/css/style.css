@@ -5,6 +5,7 @@
     padding: 0;
 }
 
+
 label {
     line-height: 2em;
 }
@@ -78,7 +79,6 @@ nav>a:hover {
 }
 
 .middle {
-    display: inline-block;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -88,6 +88,7 @@ nav>a:hover {
     height: 550px;
     padding: 10px;
     margin: auto;
+    overflow: auto;
 }
 
 .result {

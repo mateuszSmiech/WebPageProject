@@ -24,7 +24,6 @@
             <span><%= session.getAttribute("date")%></span><br/>
             <p class="chat_display">${message.getMessage()}</p>
         </div>
-
     </c:forEach>
     <br/>
 </form>
