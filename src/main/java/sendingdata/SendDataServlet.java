@@ -1,5 +1,6 @@
 package sendingdata;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Enumeration;
 
@@ -16,9 +18,14 @@ import static org.apache.commons.io.FileUtils.readFileToString;
 @WebServlet(name = "SendDataServlet", value="/proceed")
 public class SendDataServlet extends HttpServlet {
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        File file = new File("C:\\Users\\Mateusz\\IdeaProjects\\passwordGenerator\\src\\/main/resorces/form.html");
+        ServletContext context = req.getServletContext();
+        URL resource = context.getResource("../resources/form.html");
+        File file = new File(resource.getPath());
+        System.out.println(file.getAbsolutePath());
+
         String s = readFileToString(file, Charset.defaultCharset());
         PrintWriter out = resp.getWriter();
         out.println(s);

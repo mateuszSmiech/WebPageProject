@@ -69,7 +69,7 @@ public class LoginServlet extends HttpServlet {
                         session.setAttribute("loggedIn", isLoggedIn);
                         session.setAttribute("firstName", findByUsername(userList, request).getFirstName());
                         session.setAttribute("lastName", findByUsername(userList, request).getLastName());
-                        session.setMaxInactiveInterval(60*60);
+                        session.setMaxInactiveInterval(60*60*24);
                         response.sendRedirect("dashboard.jsp");
 
                 } else {

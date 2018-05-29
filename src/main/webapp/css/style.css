@@ -154,3 +154,25 @@ nav>a:hover {
 #logout:hover {
     background-color: #484848;
 }
+.chat_container {
+    width:80vw;
+    /*height:500px;*/
+    border: 1px solid green;
+}
+.chat-text {
+    display:block;
+    width:100%;
+    border: 1px solid black;
+    background-color: #f0acb1;
+    margin: 10px 0;
+}
+.chat_message {
+    width:100%;
+    line-height: 1.2;
+    border:1px solid black;
+    margin: 10px 0;
+}
+.chat_button {
+    width:100%;
+    margin:10px 0;
+}

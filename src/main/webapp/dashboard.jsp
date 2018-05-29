@@ -10,14 +10,7 @@
 <% if(session.getAttribute("loggedIn")==null) {
     response.sendRedirect("index.jsp");
 }%>
-<nav>
-    <a href="proceed" class="nav_button">Send Form</a>
-    <a href="proceed" class="nav_button">Send Form</a>
-    <a href="proceed" class="nav_button">Send Form</a>
-    <a href="proceed" class="nav_button">Send Form</a>
-
-    <a href="logout" id="logout">LogOut</a>
-</nav>
+<%@ include file="navigation.jsp"%>
 <br/>
 
 </body>
