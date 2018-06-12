@@ -13,9 +13,14 @@
 <%@ include file="navigation.jsp" %>
 
 <br/>
-<section class="middle chat_container">
-<form action="chat" method="post">
 
+<form action="chat" method="post">
+    <div class="chat_input_position">
+        <input type="text" name="messageInput" required class="chat_message"/>
+        <button type="submit" class="chat_button">Send</button>
+    </div>
+    <section class="chat_position">
+    <%--<div class="message_area">--%>
     <c:forEach items="${sessionScope.get('messageList')}" var="message">
         <div class="chat-text">
             <span class="chat_username">${message.getUsername()}</span>
@@ -23,11 +28,11 @@
             <p class="chat_display">${message.getMessage()}</p>
         </div>
     </c:forEach>
-    <br/>
-    <input type="text" name="messageInput" required class="chat_message"/>
-    <button type="submit" class="chat_button">Send</button>
+    <%--</div>--%>
+
+    </section>
 </form>
-</section>
+
 
 </body>
 </html>

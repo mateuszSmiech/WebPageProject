@@ -41,4 +41,13 @@ public class ChatServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/chat.jsp").forward(request, response);
         }
     }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        session = request.getSession();
+        if(session.getAttribute("loggedIn")==null) {
+            response.sendRedirect("index.jsp");
+        }
+
+    }
 }
