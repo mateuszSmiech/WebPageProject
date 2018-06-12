@@ -28,8 +28,8 @@ public class LoginServlet extends HttpServlet {
         User user2 = new User();
         user2.setFirstName("Andrzej");
         user2.setLastName("Smiech");
-        user2.setUsername("andrzej321");
-        user2.setPassword("qwerty");
+        user2.setUsername("demo");
+        user2.setPassword("demo");
         user2.setEmail("Email2@gmail.com");
         List<User> userList = new ArrayList<>();
         userList.add(user1);

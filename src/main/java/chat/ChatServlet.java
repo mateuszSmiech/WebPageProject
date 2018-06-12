@@ -48,6 +48,9 @@ public class ChatServlet extends HttpServlet {
         if(session.getAttribute("loggedIn")==null) {
             response.sendRedirect("index.jsp");
         }
+        else{
+            response.sendRedirect("chat.jsp");
+        }
 
     }
 }
