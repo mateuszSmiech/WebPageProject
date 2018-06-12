@@ -21,15 +21,14 @@ public class ChatServlet extends HttpServlet {
 
     private String getDate() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm");
-        String rawDate = LocalDateTime.now().format(formatter);
-        return rawDate;
+        return LocalDateTime.now().format(formatter);
     }
 
     private List<Message> getMessageList(HttpServletRequest request){
         String message = request.getParameter("messageInput");
         session = request.getSession();
         String username = session.getAttribute("firstName")+ " " + session.getAttribute("lastName");
-        messageList.add(new Message(username, message));
+        messageList.add(new Message(username, message, getDate()));
         return messageList;
 
     }
@@ -38,10 +37,8 @@ public class ChatServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(!request.getMethod().equals("GET")) {
             messageList = getMessageList(request);
-            session.setAttribute("date", getDate());
             session.setAttribute("messageList", messageList);
             getServletContext().getRequestDispatcher("/chat.jsp").forward(request, response);
-            //response.sendRedirect("chat.jsp");
         }
     }
 }
