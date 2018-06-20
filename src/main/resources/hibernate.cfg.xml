@@ -14,7 +14,7 @@
         <!--<property name="use_sql_comments">true</property>-->
 
         <!-- automatyczne towrzenie modelu opcje:none, validate, create, update, create-drop -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- mapowanie encji na tabela i tabel na encje -->
         <mapping class="datastructure.User"/>

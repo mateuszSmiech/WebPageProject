@@ -27,6 +27,9 @@
         <input type="text" name="passwordInput" class="login_form"/><br/>
         <button type="submit" class="login_button">Login</button>
     </form>
+    <form action="query" method="post">
+        <button type="submit">Query</button>
+    </form>
 </main>
 <footer>
     <a href="generator.jsp" class="footer_link">Password Generator</a>
