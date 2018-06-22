@@ -17,33 +17,27 @@ public class LoginServlet extends HttpServlet {
     private User invalidUser = new User("","","","");
 
 
-    private User findByUsername(HttpServletRequest request) {
-        if(usersServices.findByUsername(request.getParameter("loginInput")) != null){
-                return usersServices.findByUsername(request.getParameter("loginInput"));
+    private User findByUsername(HttpServletRequest request, User user) {
+        if(user != null){
+                return user;
             }
-        return invalidUser;
-    }
-
-    private User findByPassword(HttpServletRequest request) {
-        if(usersServices.findByPassword(request.getParameter("passwordInput")) != null) {
-            return usersServices.findByPassword(request.getParameter("passwordInput"));
-        }
         return invalidUser;
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = usersServices.findByUsername(request.getParameter("loginInput"));
 
         HttpSession session;
         if (!(request.getParameter("loginInput").equals("")) || !(request.getParameter("passwordInput").equals(""))) {
-                if (findByUsername(request).getUsername().equals(request.getParameter("loginInput"))
-                        && findByPassword(request).getPassword().equals(request.getParameter("passwordInput"))) {
+                if (findByUsername(request, user).getUsername().equals(request.getParameter("loginInput"))
+                        && findByUsername(request, user).getPassword().equals(request.getParameter("passwordInput"))) {
 
                     boolean isLoggedIn = true;
                         session = request.getSession();
                         session.setAttribute("loggedIn", isLoggedIn);
-                        session.setAttribute("firstName", findByUsername(request).getFirstName());
-                        session.setAttribute("lastName", findByUsername(request).getLastName());
+                        session.setAttribute("firstName", findByUsername(request, user).getFirstName());
+                        session.setAttribute("lastName", findByUsername(request, user).getLastName());
                         session.setMaxInactiveInterval(60*60*24);
                         response.sendRedirect("dashboard.jsp");
 
